@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SistemaVendas.DAL
 {
-    public class ApplicationDbContetext : DbContext
+    public class ApplicationDbContext : DbContext
     {
         public DbSet<Categoria> Categoria { get; set; }
         public DbSet<Produto> Produto{ get; set; }
@@ -15,6 +15,9 @@ namespace SistemaVendas.DAL
         public DbSet<Cliente> Cliente { get; set; }
         public DbSet<Venda> Venda { get; set; }
         public DbSet<VendaProdutos> VendaProdutos { get; set; }
+
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
+  
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SistemaVendas.DAL;
+using SistemaVendas.Entity;
 using SistemaVendas.Models;
 using System;
 using System.Collections.Generic;
@@ -10,8 +12,24 @@ namespace SistemaVendas.Controllers
 {
     public class HomeController : Controller
     {
+        protected ApplicationDbContext _Context;
+        public HomeController(ApplicationDbContext context)
+        {
+            _Context = context;
+        }
         public IActionResult Index()
         {
+            /*Categoria categoria = new Categoria()
+            {
+                Descricao = "teste"
+            };
+            _Context.Categoria.Add(categoria);
+            _Context.SaveChanges();
+            Categoria objCategoria = _Context.Categoria.Where(x => x.Codigo == 2).FirstOrDefault();
+            objCategoria.Descricao = "Bebidas";
+            _Context.Entry(objCategoria).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            _Context.SaveChanges();*/
+
             return View();
         }
 
